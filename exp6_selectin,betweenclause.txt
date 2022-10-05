@@ -1,0 +1,84 @@
+
+mysql> select*from movie;
++-----------------+---------+------------+-------------+------------+-------------------+
+| movie_name      | genre   | actor_name | director    | production | theatres_released |
++-----------------+---------+------------+-------------+------------+-------------------+
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |              1000 |
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |               800 |
+| vikram          | action  | kamal      | lokesh      | RKFI       |               900 |
++-----------------+---------+------------+-------------+------------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> select*from movie
+    -> where genre in("history","action");
++-----------------+---------+------------+-------------+------------+-------------------+
+| movie_name      | genre   | actor_name | director    | production | theatres_released |
++-----------------+---------+------------+-------------+------------+-------------------+
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |              1000 |
+| vikram          | action  | kamal      | lokesh      | RKFI       |               900 |
++-----------------+---------+------------+-------------+------------+-------------------+
+2 rows in set (0.04 sec)
+
+mysql> select*from movie
+    -> where theatres_released between 800 and 1000;
++-----------------+---------+------------+-------------+------------+-------------------+
+| movie_name      | genre   | actor_name | director    | production | theatres_released |
++-----------------+---------+------------+-------------+------------+-------------------+
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |              1000 |
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |               800 |
+| vikram          | action  | kamal      | lokesh      | RKFI       |               900 |
++-----------------+---------+------------+-------------+------------+-------------------+
+3 rows in set (0.04 sec)
+
+mysql> select*from movie
+    -> where theatres_released between 800 and 900;
++------------+--------+------------+----------+------------+-------------------+
+| movie_name | genre  | actor_name | director | production | theatres_released |
++------------+--------+------------+----------+------------+-------------------+
+| thunivu    | crime  | ajithkumar | vinoth   | bayview    |               800 |
+| vikram     | action | kamal      | lokesh   | RKFI       |               900 |
++------------+--------+------------+----------+------------+-------------------+
+2 rows in set (0.00 sec)
+
+mysql> select*from movie
+    -> where theatres_released not between 800 and 900;
++-----------------+---------+------------+-------------+------------+-------------------+
+| movie_name      | genre   | actor_name | director    | production | theatres_released |
++-----------------+---------+------------+-------------+------------+-------------------+
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |              1000 |
++-----------------+---------+------------+-------------+------------+-------------------+
+1 row in set (0.00 sec)
+
+mysql> select count(actor_name) from movie;
++-------------------+
+| count(actor_name) |
++-------------------+
+|                 3 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(theatres_released) from movie;
++------------------------+
+| avg(theatres_released) |
++------------------------+
+|               900.0000 |
++------------------------+
+1 row in set (0.04 sec)
+
+mysql> select min(theatres_released) from movie;
++------------------------+
+| min(theatres_released) |
++------------------------+
+|                    800 |
++------------------------+
+1 row in set (0.02 sec)
+
+mysql> select max(theatres_released) from movie;
++------------------------+
+| max(theatres_released) |
++------------------------+
+|                   1000 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql>
