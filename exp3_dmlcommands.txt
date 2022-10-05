@@ -1,0 +1,59 @@
+
+mysql> desc movie;
++------------+----------+------+-----+---------+-------+
+| Field      | Type     | Null | Key | Default | Extra |
++------------+----------+------+-----+---------+-------+
+| movie_name | char(20) | NO   | PRI |         |       |
+| genre      | char(10) | YES  |     | NULL    |       |
+| actor_name | char(20) | YES  |     | NULL    |       |
+| director   | char(20) | YES  | UNI | NULL    |       |
+| production | char(10) | YES  |     | NULL    |       |
++------------+----------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into movie values("ponniyin_selvan","history","vikram","manirathnam","lyca");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select*from movie;
++-----------------+---------+------------+-------------+------------+
+| movie_name      | genre   | actor_name | director    | production |
++-----------------+---------+------------+-------------+------------+
+| ponniyin_selvan | history | vikram     | manirathnam | lyca       |
++-----------------+---------+------------+-------------+------------+
+1 row in set (0.00 sec)
+
+mysql> insert into movie values("vikram","action","kamal","lokesh","RKFI"),("thunivu","crime","ajithkumar","vinoth","bayview");
+Query OK, 2 rows affected (0.04 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select*from movie;
++-----------------+---------+------------+-------------+------------+
+| movie_name      | genre   | actor_name | director    | production |
++-----------------+---------+------------+-------------+------------+
+| ponniyin_selvan | history | vikram     | manirathnam | lyca       |
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |
+| vikram          | action  | kamal      | lokesh      | RKFI       |
++-----------------+---------+------------+-------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select actor_name from movie;
++------------+
+| actor_name |
++------------+
+| vikram     |
+| ajithkumar |
+| kamal      |
++------------+
+3 rows in set (0.00 sec)
+
+mysql> select*from movie where actor_name=ajithkumar;
+ERROR 1054 (42S22): Unknown column 'ajithkumar' in 'where clause'
+mysql> select*from movie where actor_name="ajithkumar";
++------------+-------+------------+----------+------------+
+| movie_name | genre | actor_name | director | production |
++------------+-------+------------+----------+------------+
+| thunivu    | crime | ajithkumar | vinoth   | bayview    |
++------------+-------+------------+----------+------------+
+1 row in set (0.03 sec)
+
+mysql>
