@@ -9,3 +9,5 @@
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp4_dmlcommands.txt)
 ## Experiment 5
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp5_selectwhereclause.txt)
+## Experiment 6
+[ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp6_selectin%2Cbetweenclause.txt)
