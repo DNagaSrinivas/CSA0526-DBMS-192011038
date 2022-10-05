@@ -1,0 +1,27 @@
+
+mysql> select*from movie;
++-----------------+---------+------------+-------------+------------+
+| movie_name      | genre   | actor_name | director    | production |
++-----------------+---------+------------+-------------+------------+
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |
++-----------------+---------+------------+-------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select*from movie where director="manirathnam";
++-----------------+---------+------------+-------------+------------+
+| movie_name      | genre   | actor_name | director    | production |
++-----------------+---------+------------+-------------+------------+
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |
++-----------------+---------+------------+-------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select*from movie where actor_name="ajithkumar";
++------------+-------+------------+----------+------------+
+| movie_name | genre | actor_name | director | production |
++------------+-------+------------+----------+------------+
+| thunivu    | crime | ajithkumar | vinoth   | bayview    |
++------------+-------+------------+----------+------------+
+1 row in set (0.00 sec)
+
+mysql>
