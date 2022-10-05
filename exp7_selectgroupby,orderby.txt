@@ -1,0 +1,46 @@
+
+mysql> select*from movie
+    -> order by(actor_name);
++-----------------+---------+------------+-------------+------------+-------------------+
+| movie_name      | genre   | actor_name | director    | production | theatres_released |
++-----------------+---------+------------+-------------+------------+-------------------+
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |               800 |
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |              1000 |
+| vikram          | action  | kamal      | lokesh      | RKFI       |               900 |
++-----------------+---------+------------+-------------+------------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> select*from movie
+    -> order by(theatres_released);
++-----------------+---------+------------+-------------+------------+-------------------+
+| movie_name      | genre   | actor_name | director    | production | theatres_released |
++-----------------+---------+------------+-------------+------------+-------------------+
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |               800 |
+| vikram          | action  | kamal      | lokesh      | RKFI       |               900 |
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |              1000 |
++-----------------+---------+------------+-------------+------------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> select*from movie
+    -> group by(production);
++-----------------+---------+------------+-------------+------------+-------------------+
+| movie_name      | genre   | actor_name | director    | production | theatres_released |
++-----------------+---------+------------+-------------+------------+-------------------+
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |               800 |
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |              1000 |
+| vikram          | action  | kamal      | lokesh      | RKFI       |               900 |
++-----------------+---------+------------+-------------+------------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> select*from movie
+    -> group by(production)
+    -> having theatres_released>800;
++-----------------+---------+------------+-------------+------------+-------------------+
+| movie_name      | genre   | actor_name | director    | production | theatres_released |
++-----------------+---------+------------+-------------+------------+-------------------+
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |              1000 |
+| vikram          | action  | kamal      | lokesh      | RKFI       |               900 |
++-----------------+---------+------------+-------------+------------+-------------------+
+2 rows in set (0.00 sec)
+
+mysql>
