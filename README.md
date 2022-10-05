@@ -15,3 +15,5 @@
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp7_selectgroupby%2Corderby.txt)
 ## Experiment 8
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp8_selectqueries.txt)
+## Experiment 9
+[ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp9_joinstatements.txt)
