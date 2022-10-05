@@ -1,0 +1,51 @@
+
+mysql> select*from movie;
++-----------------+---------+------------+-------------+------------+
+| movie_name      | genre   | actor_name | director    | production |
++-----------------+---------+------------+-------------+------------+
+| ponniyin_selvan | history | vikram     | manirathnam | lyca       |
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |
+| vikram          | action  | kamal      | lokesh      | RKFI       |
++-----------------+---------+------------+-------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> delete from movie where genre=action;
+ERROR 1054 (42S22): Unknown column 'action' in 'where clause'
+mysql> delete from movie where genre="action";
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from movie;
++-----------------+---------+------------+-------------+------------+
+| movie_name      | genre   | actor_name | director    | production |
++-----------------+---------+------------+-------------+------------+
+| ponniyin_selvan | history | vikram     | manirathnam | lyca       |
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |
++-----------------+---------+------------+-------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> update movie
+    -> actor_name = "jayamravi"
+    -> where genre="history";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= "jayamravi"
+where genre="history"' at line 2
+mysql> update movie
+    -> actor_name ="jayamravi"
+    -> where genre="history";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '="jayamravi"
+where genre="history"' at line 2
+mysql> update movie
+    -> set actor_name ="jayamravi"
+    -> where genre="history";
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from movie;
++-----------------+---------+------------+-------------+------------+
+| movie_name      | genre   | actor_name | director    | production |
++-----------------+---------+------------+-------------+------------+
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |
++-----------------+---------+------------+-------------+------------+
+2 rows in set (0.00 sec)
+
+mysql>
