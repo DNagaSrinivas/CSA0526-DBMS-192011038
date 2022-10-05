@@ -17,3 +17,5 @@
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp8_selectqueries.txt)
 ## Experiment 9
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp9_joinstatements.txt)
+## Experiment 10
+[ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp10_view%2Cindex.txt)
