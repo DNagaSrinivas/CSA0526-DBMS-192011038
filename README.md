@@ -11,3 +11,5 @@
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp5_selectwhereclause.txt)
 ## Experiment 6
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp6_selectin%2Cbetweenclause.txt)
+## Experiment 7
+[ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp7_selectgroupby%2Corderby.txt)
