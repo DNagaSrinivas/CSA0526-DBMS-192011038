@@ -1,0 +1,43 @@
+
+mysql> select*from movie;
++-----------------+---------+------------+-------------+------------+-------------------+
+| movie_name      | genre   | actor_name | director    | production | theatres_released |
++-----------------+---------+------------+-------------+------------+-------------------+
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |              1000 |
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |               800 |
+| vikram          | action  | kamal      | lokesh      | RKFI       |               900 |
++-----------------+---------+------------+-------------+------------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> create view movie_view as select actor_name,director and music from movie;
+ERROR 1054 (42S22): Unknown column 'music' in 'field list'
+mysql> create view movie_view as select actor_name,director and production from movie;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select*from movie_view;
++------------+-------------------------+
+| actor_name | director and production |
++------------+-------------------------+
+| jayamravi  |                       0 |
+| ajithkumar |                       0 |
+| kamal      |                       0 |
++------------+-------------------------+
+3 rows in set, 3 warnings (0.00 sec)
+
+mysql> create index director on movie(director);
+ERROR 1061 (42000): Duplicate key name 'director'
+mysql> create index genre on movie(genre);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show index from movie;
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| movie |          0 | PRIMARY  |            1 | movie_name  | A         |           3 |     NULL | NULL   |      | BTREE      |         |               |
+| movie |          0 | director |            1 | director    | A         |           3 |     NULL | NULL   | YES  | BTREE      |         |               |
+| movie |          1 | genre    |            1 | genre       | A         |           3 |     NULL | NULL   | YES  | BTREE      |         |               |
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+3 rows in set (0.00 sec)
+
+mysql>
