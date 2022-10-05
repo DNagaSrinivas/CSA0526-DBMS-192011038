@@ -7,3 +7,5 @@
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp3_dmlcommands.txt)
 ## Experiment 4
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp4_dmlcommands.txt)
+## Experiment 5
+[ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp5_selectwhereclause.txt)
