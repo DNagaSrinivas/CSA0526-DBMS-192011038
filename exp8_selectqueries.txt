@@ -1,0 +1,71 @@
+
+mysql> select movie_name,actor_name
+    -> from movie
+    -> where actor_name in(select actor_name from movie where genre="crime");
++------------+------------+
+| movie_name | actor_name |
++------------+------------+
+| thunivu    | ajithkumar |
++------------+------------+
+1 row in set (0.00 sec)
+
+mysql> insert into actor(actor_name,movie_name)
+    -> select movie_name,actor_name
+    -> from movie where actor_name="ajithkumar";
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`bharath`.`actor`, CONSTRAINT `actor_ibfk_1` FOREIGN KEY (`movie_name`) REFERENCES `movie` (`movie_name`))
+mysql> alter table actor
+    -> drop foreign key movie_name;
+ERROR 1025 (HY000): Error on rename of '.\bharath\actor' to '.\bharath\#sql2-11cc-1' (errno: 152)
+mysql> alter table movie
+    -> drop foreign key movie_name;
+ERROR 1025 (HY000): Error on rename of '.\bharath\movie' to '.\bharath\#sql2-11cc-1' (errno: 152)
+mysql> create table cinema
+    -> (movie_name char(20),
+    -> actor_name char(20),
+    -> music char(15),
+    -> budget int(8));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc cinema;
++------------+----------+------+-----+---------+-------+
+| Field      | Type     | Null | Key | Default | Extra |
++------------+----------+------+-----+---------+-------+
+| movie_name | char(20) | YES  |     | NULL    |       |
+| actor_name | char(20) | YES  |     | NULL    |       |
+| music      | char(15) | YES  |     | NULL    |       |
+| budget     | int(8)   | YES  |     | NULL    |       |
++------------+----------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> insert into cinema(movie_name,actor_name)
+    -> select movie_name,actor_name
+    -> from movie where genre="crime";
+Query OK, 1 row affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> select*from cinema;
++------------+------------+-------+--------+
+| movie_name | actor_name | music | budget |
++------------+------------+-------+--------+
+| thunivu    | ajithkumar | NULL  |   NULL |
++------------+------------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> select*from movie where theatres_released>=(select avg(theatres_released)from movie);
++-----------------+---------+------------+-------------+------------+-------------------+
+| movie_name      | genre   | actor_name | director    | production | theatres_released |
++-----------------+---------+------------+-------------+------------+-------------------+
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |              1000 |
+| vikram          | action  | kamal      | lokesh      | RKFI       |               900 |
++-----------------+---------+------------+-------------+------------+-------------------+
+2 rows in set (0.00 sec)
+
+mysql> select genre,production,director from movie where movie_name="ponniyin_selvan";
++---------+------------+-------------+
+| genre   | production | director    |
++---------+------------+-------------+
+| history | lyca       | manirathnam |
++---------+------------+-------------+
+1 row in set (0.00 sec)
+
+mysql>
