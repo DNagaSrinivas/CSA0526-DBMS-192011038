@@ -1,0 +1,69 @@
+
+mysql> select*from movie;
++-----------------+---------+------------+-------------+------------+-------------------+
+| movie_name      | genre   | actor_name | director    | production | theatres_released |
++-----------------+---------+------------+-------------+------------+-------------------+
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |              1000 |
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |               800 |
+| vikram          | action  | kamal      | lokesh      | RKFI       |               900 |
++-----------------+---------+------------+-------------+------------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> select*from cinema;
++-----------------+------------+----------+--------+
+| movie_name      | actor_name | music    | budget |
++-----------------+------------+----------+--------+
+| thunivu         | ajithkumar | NULL     |   NULL |
+| vikram          | kamal      | anirudh  |    150 |
+| ponniyin_selvan | jayamravi  | arrahman |    400 |
++-----------------+------------+----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select movie_name,genre,director,music,production,theatres_released
+    -> from movie,cinema
+    -> where movie.actor_name=cinema.actor_name;
+ERROR 1052 (23000): Column 'movie_name' in field list is ambiguous
+mysql> select genre,director,music,production,theatres_released
+    -> from movie,cinema
+    -> where movie.actor_name=cinema.actor_name;
++---------+-------------+----------+------------+-------------------+
+| genre   | director    | music    | production | theatres_released |
++---------+-------------+----------+------------+-------------------+
+| crime   | vinoth      | NULL     | bayview    |               800 |
+| action  | lokesh      | anirudh  | RKFI       |               900 |
+| history | manirathnam | arrahman | lyca       |              1000 |
++---------+-------------+----------+------------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> select actor_name,music,budget
+    -> from cinema
+    -> left outer join movie
+    -> on movie.actor_name=cinema.actor_name;
+ERROR 1052 (23000): Column 'actor_name' in field list is ambiguous
+mysql> select music,budget
+    -> from cinema
+    -> left outer join movie
+    -> on movie.actor_name=cinema.actor_name;
++----------+--------+
+| music    | budget |
++----------+--------+
+| NULL     |   NULL |
+| anirudh  |    150 |
+| arrahman |    400 |
++----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select genre,director,production,theatres_released
+    -> from movie
+    -> right outer join cinema
+    -> on movie.actor_name=cinema.actor_name;
++---------+-------------+------------+-------------------+
+| genre   | director    | production | theatres_released |
++---------+-------------+------------+-------------------+
+| crime   | vinoth      | bayview    |               800 |
+| action  | lokesh      | RKFI       |               900 |
+| history | manirathnam | lyca       |              1000 |
++---------+-------------+------------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql>
