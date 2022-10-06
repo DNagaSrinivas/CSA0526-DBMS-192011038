@@ -1,0 +1,69 @@
+
+mysql> desc movie;
++-------------------+----------+------+-----+---------+-------+
+| Field             | Type     | Null | Key | Default | Extra |
++-------------------+----------+------+-----+---------+-------+
+| movie_name        | char(20) | NO   | PRI |         |       |
+| genre             | char(10) | YES  | MUL | NULL    |       |
+| actor_name        | char(20) | YES  |     | NULL    |       |
+| director          | char(20) | YES  | UNI | NULL    |       |
+| production        | char(10) | YES  |     | NULL    |       |
+| theatres_released | int(4)   | YES  |     | NULL    |       |
++-------------------+----------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> create user jbsr;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> grant all on persons to jbsr;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for jbsr;
++-----------------------------------------------------------+
+| Grants for jbsr@%                                         |
++-----------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'jbsr'@'%'                          |
+| GRANT ALL PRIVILEGES ON `bharath`.`persons` TO 'jbsr'@'%' |
++-----------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke all on persons from jbsr;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for jbsr;
++----------------------------------+
+| Grants for jbsr@%                |
++----------------------------------+
+| GRANT USAGE ON *.* TO 'jbsr'@'%' |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> grant select,delete,update on persons to jbsr;
+ERROR 1146 (42S02): Table 'bharath.persons' doesn't exist
+mysql> grant select,delete,update on movie to jbsr;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> shows grants for jbsr;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'shows grants for jbsr' at line 1
+mysql> show grants for jbsr;
++-----------------------------------------------------------------+
+| Grants for jbsr@%                                               |
++-----------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'jbsr'@'%'                                |
+| GRANT SELECT, UPDATE, DELETE ON `bharath`.`movie` TO 'jbsr'@'%' |
++-----------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke delete on movie from jbsr;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for jbsr;
++---------------------------------------------------------+
+| Grants for jbsr@%                                       |
++---------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'jbsr'@'%'                        |
+| GRANT SELECT, UPDATE ON `bharath`.`movie` TO 'jbsr'@'%' |
++---------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql>
