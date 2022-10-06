@@ -1,0 +1,45 @@
+
+mysql> use bharath;
+Database changed
+mysql> select*from movie;
++-----------------+----------+------------+-------------+------------+-------------------+
+| movie_name      | genre    | actor_name | director    | production | theatres_released |
++-----------------+----------+------------+-------------+------------+-------------------+
+| mankatha        | thriller | ajithkumar | venkat      | sun        |               700 |
+| ponniyin_selvan | history  | jayamravi  | manirathnam | lyca       |              1000 |
+| thunivu         | crime    | ajithkumar | vinoth      | bayview    |               800 |
+| vikram          | action   | kamal      | lokesh      | RKFI       |               900 |
++-----------------+----------+------------+-------------+------------+-------------------+
+4 rows in set (0.00 sec)
+
+mysql> DELIMITER //
+mysql> CREATE PROCEDURE cinema()
+    -> BEGIN
+    -> SELECT movie_name,director
+    -> from movie
+    -> where actor_name="ajithkumar";
+    -> END //
+ERROR 1304 (42000): PROCEDURE cinema already exists
+mysql> call cinema();
+    -> //
++----------+----------+
+| genre    | director |
++----------+----------+
+| thriller | venkat   |
+| crime    | vinoth   |
++----------+----------+
+2 rows in set (0.04 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select*from movie
+    -> where actor_name="ajithkumar";
++------------+----------+------------+----------+------------+-------------------+
+| movie_name | genre    | actor_name | director | production | theatres_released |
++------------+----------+------------+----------+------------+-------------------+
+| mankatha   | thriller | ajithkumar | venkat   | sun        |               700 |
+| thunivu    | crime    | ajithkumar | vinoth   | bayview    |               800 |
++------------+----------+------------+----------+------------+-------------------+
+2 rows in set (0.00 sec)
+
+mysql>
