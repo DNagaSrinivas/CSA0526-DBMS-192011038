@@ -25,3 +25,5 @@
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp12_whileloop.txt)
 ## Experiment 13_savepoint,rollback
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp13_savepoint%2Crollback.txt)
+## Experiment 14_grant,revoke
+[ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp14_grantrevoke.txt)
