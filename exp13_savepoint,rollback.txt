@@ -1,0 +1,56 @@
+
+mysql> use bharath;
+Database changed
+mysql> select*from movie;
++-----------------+----------+------------+-------------+------------+-------------------+
+| movie_name      | genre    | actor_name | director    | production | theatres_released |
++-----------------+----------+------------+-------------+------------+-------------------+
+| mankatha        | thriller | ajithkumar | venkat      | sun        |               700 |
+| ponniyin_selvan | history  | jayamravi  | manirathnam | lyca       |              1000 |
+| thunivu         | crime    | ajithkumar | vinoth      | bayview    |               800 |
+| vikram          | action   | kamal      | lokesh      | RKFI       |               900 |
++-----------------+----------+------------+-------------+------------+-------------------+
+4 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> savepoint insertion;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> update movie set actor_name="karthi" where movie_name="ponniyin_selvan";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from movie;
++-----------------+----------+------------+-------------+------------+-------------------+
+| movie_name      | genre    | actor_name | director    | production | theatres_released |
++-----------------+----------+------------+-------------+------------+-------------------+
+| mankatha        | thriller | ajithkumar | venkat      | sun        |               700 |
+| ponniyin_selvan | history  | karthi     | manirathnam | lyca       |              1000 |
+| thunivu         | crime    | ajithkumar | vinoth      | bayview    |               800 |
+| vikram          | action   | kamal      | lokesh      | RKFI       |               900 |
++-----------------+----------+------------+-------------+------------+-------------------+
+4 rows in set (0.00 sec)
+
+mysql> savepoint updation;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> rollback to insertion;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select*from movie;
++-----------------+----------+------------+-------------+------------+-------------------+
+| movie_name      | genre    | actor_name | director    | production | theatres_released |
++-----------------+----------+------------+-------------+------------+-------------------+
+| mankatha        | thriller | ajithkumar | venkat      | sun        |               700 |
+| ponniyin_selvan | history  | jayamravi  | manirathnam | lyca       |              1000 |
+| thunivu         | crime    | ajithkumar | vinoth      | bayview    |               800 |
+| vikram          | action   | kamal      | lokesh      | RKFI       |               900 |
++-----------------+----------+------------+-------------+------------+-------------------+
+4 rows in set (0.00 sec)
+
+mysql>
