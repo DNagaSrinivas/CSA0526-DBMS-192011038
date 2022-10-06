@@ -1,0 +1,74 @@
+
+mysql> select*from movie;
++-----------------+---------+------------+-------------+------------+-------------------+
+| movie_name      | genre   | actor_name | director    | production | theatres_released |
++-----------------+---------+------------+-------------+------------+-------------------+
+| ponniyin_selvan | history | jayamravi  | manirathnam | lyca       |              1000 |
+| thunivu         | crime   | ajithkumar | vinoth      | bayview    |               800 |
+| vikram          | action  | kamal      | lokesh      | RKFI       |               900 |
++-----------------+---------+------------+-------------+------------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into movie
+    -> values("mankatha","thriller","ajithkumar","venkat","sun",700);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select movie_name,theatres_released
+    -> case
+    -> when theatres_released<800 then "good"
+    -> when theatres_released=800 then "blockbuster"
+    -> else "Industrial Hit"
+    -> end performance
+    -> from movie;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'case
+when theatres_released<800 then "good"
+when theatres_released=800 then "blo' at line 2
+mysql> select movie_name,theatres_released
+    -> case
+    -> when theatres_released<800 then "good"
+    -> when theatres_released=800 then "blockbuster"
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'case
+when theatres_released<800 then "good"
+when theatres_released=800 then "blo' at line 2
+mysql> select movie_name,theatres_released
+    -> case
+    -> when theatres_released<800 then 'super hit'
+    -> when theatres_released=800 then 'blockbuster'
+    -> else 'Industrial Hit'
+    -> end performance
+    -> from movie;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'case
+when theatres_released<800 then 'super hit'
+when theatres_released=800 then' at line 2
+mysql> select movie_name,theatres_released,
+    -> case
+    -> when theatres_released<800 then 'super hit'
+    -> when theatres_released=800 then 'blockbuster'
+    -> else 'Industrial Hit'
+    -> end performance
+    -> from movie;
++-----------------+-------------------+----------------+
+| movie_name      | theatres_released | performance    |
++-----------------+-------------------+----------------+
+| mankatha        |               700 | super hit      |
+| ponniyin_selvan |              1000 | Industrial Hit |
+| thunivu         |               800 | blockbuster    |
+| vikram          |               900 | Industrial Hit |
++-----------------+-------------------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> select movie_name,theatres_released,
+    -> if(theatres_released>700,'blockbuster','super hit')
+    -> from movie;
++-----------------+-------------------+-----------------------------------------------------+
+| movie_name      | theatres_released | if(theatres_released>700,'blockbuster','super hit') |
++-----------------+-------------------+-----------------------------------------------------+
+| mankatha        |               700 | super hit                                           |
+| ponniyin_selvan |              1000 | blockbuster                                         |
+| thunivu         |               800 | blockbuster                                         |
+| vikram          |               900 | blockbuster                                         |
++-----------------+-------------------+-----------------------------------------------------+
+4 rows in set (0.04 sec)
+
+mysql>
