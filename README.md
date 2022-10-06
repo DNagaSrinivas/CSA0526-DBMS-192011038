@@ -21,3 +21,5 @@
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp10_view%2Cindex.txt)
 ## Experiment 11_case,if
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp11_case%2Cif.txt)
+## Experiment 12_whileloop
+[ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp12_whileloop.txt)
