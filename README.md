@@ -31,5 +31,7 @@
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp15_highlevelprogramming.txt)
 ## Experiment 16_highlevelprogramming1
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp16_highlevelprogramming1.txt)
+## Experiment 17_repeat,replicate
+[ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp17_repeat%2Creplicate.txt)
 ## Experiment 19_javaconnectivity
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp19_javaconnectivity.txt)
