@@ -37,3 +37,5 @@
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp18_commit%2Crollback.txt)
 ## Experiment 19_javaconnectivity
 [ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp19_javaconnectivity.txt)
+## Experiment 20_tableHRM
+[ SQL Queries](https://github.com/BHARATH-SUNDARARAMAN/CSA0526-DBMS-192011038/blob/main/exp20_tableHR.txt)
